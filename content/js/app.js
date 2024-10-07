@@ -2,19 +2,9 @@ const inputElem = document.querySelector("input");
 
 let apiData = {
   url: "https://api.openweathermap.org/data/2.5/weather?q=",
-  key: "26c4d8ad14b57209671494df9bd9fcb9",
+  key: "6dc55ea61d9b5c080d738d047414fab4",
 };
 
-// function fetchData() {
-//   let countryValue = inputElem.value;
-
-//   fetch(`${apiData.url}${countryValue}&&appid=${apiData.key}`)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       showData(data);
-//       console.log(data);
-//     });
-// }
 function fetchData() {
   let countryValue = inputElem.value;
 
@@ -29,10 +19,8 @@ function fetchData() {
           document.querySelector(".err").style.display = "none";
         }, 3000);
       } else {
-        showData(data);
-
         document.querySelector(".err").style.display = "none";
-        document.querySelector("main").style.display = "block";
+        showData(data);
       }
     });
 }
@@ -94,7 +82,7 @@ function showDate() {
 }
 
 inputElem.addEventListener("keypress", (event) => {
-  if (event.keyCode === 13) {
+  if (event.key === "Enter") {
     fetchData();
   }
 });
