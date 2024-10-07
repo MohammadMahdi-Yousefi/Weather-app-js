@@ -26,6 +26,7 @@ function fetchData() {
 }
 
 function showData(data) {
+     inputElem.value = "";
   let cityElem = document.querySelector(".city");
   cityElem.innerHTML = `${data.name}, ${data.sys.country}`;
 
